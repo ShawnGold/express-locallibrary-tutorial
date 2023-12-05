@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 Update Author
+
+  form(action=author.url method="post")
+    input(type="hidden" name="_method" value="PUT")
+    input(type="submit" value="Update Author")
+  hr
+  p
+    a(href=author.url) Back to Author

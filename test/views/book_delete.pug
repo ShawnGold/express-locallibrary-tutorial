@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+
+  if book_instances.length > 0
+    p This book is associated with the following book instances. You cannot delete it until these instances are deleted:
+
+    ul
+      each bookInstance in book_instances
+        li
+          a(href=bookInstance.url) #{bookInstance.imprint}
+
+  else
+    p This book is not associated with any book instances.
+
+  if can_delete
+    form(method='post' action=book.url+'/delete')
+      input(type='submit' value='Delete Book')
+  else
+    p You cannot delete this book because it is associated with book instances.

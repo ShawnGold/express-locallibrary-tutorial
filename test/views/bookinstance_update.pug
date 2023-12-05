@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 Update Book Copy
+
+  form(action=bookinstance.url method="post")
+    input(type="hidden" name="_method" value="PUT")
+    input(type="submit" value="Update Book Copy")
+  hr
+  p
+    a(href=bookinstance.url) Back to Book Copy

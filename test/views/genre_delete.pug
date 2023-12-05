@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+
+  if genre_books.length > 0
+    p This genre is associated with the following books. You cannot delete it until these books are deleted:
+
+    ul
+      each book in genre_books
+        li
+          a(href=book.url) #{book.title}
+
+  else
+    p This genre is not associated with any books.
+
+  if can_delete
+    form(method='post' action=genre.url+'/delete')
+      input(type='submit' value='Delete Genre')
+  else
+    p You cannot delete this genre because it is associated with books.

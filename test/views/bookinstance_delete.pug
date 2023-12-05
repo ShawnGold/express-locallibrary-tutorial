@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+
+  if can_delete
+    p Are you sure you want to delete this book instance?
+
+    form(method='post' action=bookinstance.url+'/delete')
+      input(type='submit' value='Delete Book Instance')
+  else
+    p You cannot delete this book instance because it is associated with other objects.

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 Update Genre
+
+  form(action=genre.url method="post")
+    input(type="hidden" name="_method" value="PUT")
+
+    input(type="submit" value="Update Genre")
+  hr
+  p
+    a(href=genre.url) Back to Genre
